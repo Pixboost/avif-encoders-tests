@@ -1,0 +1,41 @@
+<!doctype html>
+
+<html>
+  <head>
+    <style>
+      img {
+        display: inline-block;
+        align-self: center;
+      }
+      div {
+        display: flex;
+        padding: 10px;
+        flex-direction: column;
+      }
+    </style>
+    <script type="text/javascript">
+      window.addImages = function () {
+        const body = document.querySelector('body');
+        for (let i = 0; i < 473; i++) {
+          const div = document.createElement('div');
+
+          const h3 = document.createElement('h3');
+          h3.innerText = `${i}`;
+          div.appendChild(h3);
+
+          const libavifImg = document.createElement('img');
+          libavifImg.setAttribute('src', `./libavif/image-${i}.avif`);
+          div.append(libavifImg);
+
+          const libheifImg = document.createElement('img');
+          libheifImg.setAttribute('src', `./libheif/image-${i}.avif`);
+          div.append(libheifImg);
+
+          body.append(div);
+        }
+      }
+    </script>
+  </head>
+  <body onload="addImages()">
+  </body>
+</html>
